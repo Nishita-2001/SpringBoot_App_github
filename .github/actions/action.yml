@@ -1,0 +1,16 @@
+name: "Custom Maven Build Action"
+description: "Reusable composite action for building Spring Boot app"
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Build Project
+      run: mvn clean package
+      shell: bash
